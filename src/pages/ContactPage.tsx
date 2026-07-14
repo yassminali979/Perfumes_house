@@ -23,10 +23,7 @@ export function ContactPage() {
       {/* Hero */}
       <section className="relative pt-40 pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            alt="Luxury perfume"
-            className="h-full w-full object-cover opacity-25"
-          />
+
           <div className="absolute inset-0 bg-gradient-to-b from-ink-950/70 to-ink-950" />
         </div>
         <div className="relative z-10 text-center px-5">

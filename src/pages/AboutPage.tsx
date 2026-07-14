@@ -9,10 +9,6 @@ export function AboutPage() {
       {/* Hero */}
       <section className="relative pt-40 pb-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            alt="Luxury perfume"
-            className="h-full w-full object-cover opacity-30"
-          />
           <div className="absolute inset-0 bg-gradient-to-b from-ink-950/80 to-ink-950" />
         </div>
         <div className="relative z-10 max-w-3xl mx-auto px-5 text-center">
