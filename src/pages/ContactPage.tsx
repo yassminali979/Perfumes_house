@@ -56,14 +56,6 @@ export function ContactPage() {
                 href={`tel:${CONTACT.phone}`}
               />
             </Reveal>
-            <Reveal delay={100}>
-              <ContactCard
-                icon={<MessageCircle size={20} strokeWidth={1.5} />}
-                title="WhatsApp"
-                value="Chat with us"
-                href={`https://wa.me/${CONTACT.whatsapp}`}
-              />
-            </Reveal>
             <Reveal delay={200}>
               <ContactCard
                 icon={<Mail size={20} strokeWidth={1.5} />}

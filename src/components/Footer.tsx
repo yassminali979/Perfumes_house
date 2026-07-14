@@ -40,9 +40,6 @@ export function Footer() {
               <a href={`tel:${CONTACT.phone}`} className="flex items-center gap-2.5 hover:text-gold-300 transition-colors">
                 <Phone size={15} strokeWidth={1.5} /> {CONTACT.phone}
               </a>
-              <a href={`https://wa.me/${CONTACT.whatsapp}`} className="flex items-center gap-2.5 hover:text-gold-300 transition-colors">
-                <MessageCircle size={15} strokeWidth={1.5} /> WhatsApp
-              </a>
               <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-2.5 hover:text-gold-300 transition-colors">
                 <Mail size={15} strokeWidth={1.5} /> {CONTACT.email}
               </a>
