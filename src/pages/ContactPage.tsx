@@ -48,14 +48,6 @@ export function ContactPage() {
       <section className="py-20 bg-ink-900 border-y border-white/5">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <Reveal>
-              <ContactCard
-                icon={<Phone size={20} strokeWidth={1.5} />}
-                title="Phone"
-                value={CONTACT.phone}
-                href={`tel:${CONTACT.phone}`}
-              />
-            </Reveal>
             <Reveal delay={200}>
               <ContactCard
                 icon={<Mail size={20} strokeWidth={1.5} />}
@@ -79,48 +71,6 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* Form + info */}
-      <section className="py-24 bg-ink-950">
-        <div className="max-w-5xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Reveal>
-            <div>
-              <h2 className="font-serif text-3xl text-cream-50 mb-4">Send Us a Message</h2>
-              <p className="text-cream-300/60 text-sm mb-8">
-                Fill in the form and we will respond via WhatsApp shortly.
-              </p>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                  type="text"
-                  required
-                  placeholder="Your name"
-                  value={form.name}
-                  onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
-                  className="lux-input"
-                />
-                <input
-                  type="email"
-                  required
-                  placeholder="Your email"
-                  value={form.email}
-                  onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
-                  className="lux-input"
-                />
-                <textarea
-                  required
-                  placeholder="Your message"
-                  value={form.message}
-                  onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
-                  className="lux-input min-h-[120px] resize-none"
-                />
-                <button type="submit" className="btn-gold w-full">
-                  {sent ? <><Check size={16} /> Sent</> : <><Send size={15} /> Send Message</>}
-                </button>
-              </form>
-            </div>
-          </Reveal>
-
-        </div>
-      </section>
     </div>
   );
 }
@@ -142,14 +92,3 @@ function ContactCard({ icon, title, value, href }: { icon: React.ReactNode; titl
   );
 }
 
-function InfoRow({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
-  return (
-    <div className="flex items-center gap-4">
-      <span className="text-gold-300 shrink-0">{icon}</span>
-      <div>
-        <p className="eyebrow text-[10px]">{label}</p>
-        <p className="text-cream-100 text-sm mt-0.5">{value}</p>
-      </div>
-    </div>
-  );
-}

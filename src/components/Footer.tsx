@@ -37,9 +37,6 @@ export function Footer() {
           <div>
             <h4 className="eyebrow mb-4">Connect</h4>
             <div className="flex flex-col gap-3 text-sm text-cream-300/70">
-              <a href={`tel:${CONTACT.phone}`} className="flex items-center gap-2.5 hover:text-gold-300 transition-colors">
-                <Phone size={15} strokeWidth={1.5} /> {CONTACT.phone}
-              </a>
               <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-2.5 hover:text-gold-300 transition-colors">
                 <Mail size={15} strokeWidth={1.5} /> {CONTACT.email}
               </a>
