@@ -161,16 +161,6 @@ export function CheckoutPage() {
                   placeholder="your.email@example.com"
                 />
               </Field>
-              <Field label="City" required>
-                <input
-                  type="text"
-                  required
-                  value={form.customer_city}
-                  onChange={(e) => update('customer_city', e.target.value)}
-                  className="lux-input"
-                  placeholder="Cairo, Giza, Alexandria…"
-                />
-              </Field>
               <Field label="Phone Number" required>
                 <input
                   type="tel"
