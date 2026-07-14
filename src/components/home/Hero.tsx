@@ -7,9 +7,6 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Content */}
       <div className="relative z-10 max-w-3xl mx-auto px-5 text-center pt-20">
-        <Reveal>
-          <p className="eyebrow mb-6 animate-fade-in">Perfumes House · Est. 2024</p>
-        </Reveal>
         <Reveal delay={150}>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-cream-50 leading-[1.05] tracking-wide animate-fade-up">
             Discover Your
