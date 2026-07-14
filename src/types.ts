@@ -69,6 +69,7 @@ export type OrderPayload = {
   customer_phone: string;
   customer_address: string;
   customer_city: string;
+  customer_email: string;
   notes: string | null;
   subtotal: number;
   delivery_fee: number;

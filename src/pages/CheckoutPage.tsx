@@ -12,6 +12,7 @@ export function CheckoutPage() {
     customer_phone: '',
     customer_address: '',
     customer_city: '',
+    customer_email: '',
     notes: '',
   });
   const [submitting, setSubmitting] = useState(false);
@@ -43,6 +44,7 @@ export function CheckoutPage() {
         customer_phone: form.customer_phone,
         customer_address: form.customer_address,
         customer_city: form.customer_city,
+        customer_email: form.customer_email,
         notes: form.notes || null,
         subtotal,
         delivery_fee: DELIVERY_FEE,
@@ -75,7 +77,23 @@ export function CheckoutPage() {
           orderItems.map((oi) => ({ ...oi, order_id: order.id })),
         );
       if (itemsErr) throw itemsErr;
-
+      await supabase.functions.invoke(
+       "send-order-email",
+        {
+          body:{
+          customer_email: form.customer_email,
+          customer_name: form.customer_name,
+          order_id: order.id,
+          total,
+          items: orderItems
+       }
+      }
+     );
+      setPlaced({
+       orderId: order.id,
+       waUrl: ''
+      });
+      clear();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
     } finally {
@@ -92,14 +110,7 @@ export function CheckoutPage() {
           </div>
           <p className="eyebrow mb-3">Order Confirmed</p>
           <h1 className="font-serif text-4xl text-cream-50 tracking-wide">Thank You</h1>
-          <p className="mt-4 text-cream-300/60">
-            Your order <span className="text-gold-300">#{placed.orderId.slice(0, 8).toUpperCase()}</span> has been placed.
-            A WhatsApp message with your order details has been prepared — please send it to confirm.
-          </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={placed.waUrl} target="_blank" rel="noreferrer" className="btn-gold">
-              <MessageCircle size={16} /> Open WhatsApp
-            </a>
             <button onClick={() => navigate('#/')} className="btn-outline">
               Back to Home
             </button>
@@ -138,6 +149,26 @@ export function CheckoutPage() {
                   onChange={(e) => update('customer_name', e.target.value)}
                   className="lux-input"
                   placeholder="Your full name"
+                />
+              </Field>
+              <Field label="Email" required>
+                <input
+                  type="email"
+                  required
+                  value={form.customer_email}
+                  onChange={(e) => update('customer_email', e.target.value)}
+                  className="lux-input"
+                  placeholder="your.email@example.com"
+                />
+              </Field>
+              <Field label="City" required>
+                <input
+                  type="text"
+                  required
+                  value={form.customer_city}
+                  onChange={(e) => update('customer_city', e.target.value)}
+                  className="lux-input"
+                  placeholder="Cairo, Giza, Alexandria…"
                 />
               </Field>
               <Field label="Phone Number" required>
@@ -230,6 +261,9 @@ export function CheckoutPage() {
               <button type="submit" disabled={submitting} className="btn-gold w-full mt-6">
                 {submitting ? 'Placing Order…' : 'Place Order'}
               </button>
+              <p className="mt-3 text-center text-cream-300/40 text-xs">
+                Your order will be saved and a WhatsApp message will open with your details.
+              </p>
             </div>
           </div>
         </form>
