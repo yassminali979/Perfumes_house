@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-950 text-cream-100 font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-gold-400 text-ink-950;
+  }
+}
+
+@layer components {
+  .gold-text {
+    @apply text-gold-300;
+  }
+  .gold-border {
+    @apply border-gold-500/40;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-gold-400 text-ink-950 font-medium tracking-widest2 uppercase text-xs px-8 py-4 transition-all duration-300 hover:bg-gold-300 hover:shadow-[0_0_30px_-4px_rgba(212,169,78,0.5)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-gold-500/60 text-gold-200 font-medium tracking-widest2 uppercase text-xs px-8 py-4 transition-all duration-300 hover:bg-gold-400 hover:text-ink-950 hover:border-gold-400 active:scale-[0.98];
+  }
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl text-cream-50 tracking-wide;
+  }
+  .eyebrow {
+    @apply text-gold-300 text-xs tracking-widest2 uppercase font-medium;
+  }
+  .card-lux {
+    @apply bg-ink-800 border border-white/5 transition-all duration-500 hover:border-gold-500/30;
+  }
+  .lux-input {
+    @apply w-full bg-ink-900 border border-white/10 text-cream-100 px-4 py-3 text-sm outline-none transition-all duration-300 placeholder:text-cream-300/30 focus:border-gold-500/60 focus:bg-ink-800;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #a87d2c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c19a3a;
+}
+
+/* Reveal-on-scroll utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

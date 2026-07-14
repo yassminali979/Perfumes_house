@@ -1,0 +1,71 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+  <defs>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#f5ecd6" />
+      <stop offset="0.5" stopColor="#d4a94e" />
+      <stop offset="1" stopColor="#a87d2c" />
+    </linearGradient>
+    <linearGradient id="goldGradText" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#e0c07a" />
+      <stop offset="0.5" stopColor="#d4a94e" />
+      <stop offset="1" stopColor="#a87d2c" />
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="200" cy="200" r="180" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#1a1a1a" />
+      <stop offset="1" stopColor="#050505" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGlow)" />
+
+  <!-- Outer diamond frame -->
+  <path d="M200 30 L370 200 L200 370 L30 200 Z" stroke="url(#goldGrad)" stroke-width="2.5" fill="rgba(212,169,78,0.03)" />
+
+  <!-- Inner diamond accent -->
+  <path d="M200 55 L345 200 L200 345 L55 200 Z" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.35" fill="none" />
+
+  <!-- Decorative corner accents -->
+  <circle cx="200" cy="30" r="3" fill="url(#goldGrad)" />
+  <circle cx="370" cy="200" r="3" fill="url(#goldGrad)" />
+  <circle cx="200" cy="370" r="3" fill="url(#goldGrad)" />
+  <circle cx="30" cy="200" r="3" fill="url(#goldGrad)" />
+
+  <!-- Atomizer spray dots -->
+  <circle cx="200" cy="68" r="2.5" fill="url(#goldGrad)" opacity="0.7" />
+  <circle cx="200" cy="60" r="1.8" fill="url(#goldGrad)" opacity="0.5" />
+  <circle cx="200" cy="54" r="1.2" fill="url(#goldGrad)" opacity="0.35" />
+
+  <!-- Spray line -->
+  <line x1="200" y1="70" x2="200" y2="80" stroke="url(#goldGrad)" stroke-width="1" opacity="0.5" />
+
+  <!-- Bottle cap -->
+  <rect x="188" y="80" width="24" height="12" rx="1.5" fill="url(#goldGrad)" />
+
+  <!-- Bottle neck -->
+  <rect x="192" y="92" width="16" height="6" fill="url(#goldGrad)" opacity="0.7" />
+
+  <!-- Bottle body -->
+  <path d="M175 98 H225 V165 Q225 195 200 210 Q175 195 175 165 Z" stroke="url(#goldGrad)" stroke-width="2" fill="rgba(212,169,78,0.05)" />
+
+  <!-- Bottle inner highlight -->
+  <path d="M180 102 H220 V163 Q220 190 200 204 Q180 190 180 163 Z" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.25" fill="none" />
+
+  <!-- P monogram -->
+  <text x="200" y="168" textAnchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="52" font-weight="600" fill="url(#goldGradText)">P</text>
+
+  <!-- Decorative line under bottle -->
+  <line x1="160" y1="225" x2="240" y2="225" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.5" />
+  <circle cx="200" cy="225" r="2" fill="url(#goldGrad)" opacity="0.7" />
+
+  <!-- Brand text: Perfumes -->
+  <text x="200" y="278" textAnchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-weight="500" letter-spacing="8" fill="#f8f3e9">PERFUMES</text>
+
+  <!-- Brand text: House -->
+  <text x="200" y="318" textAnchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-weight="500" font-style="italic" letter-spacing="8" fill="url(#goldGradText)">HOUSE</text>
+
+  <!-- Bottom decorative flourish -->
+  <line x1="150" y1="340" x2="195" y2="340" stroke="url(#goldGrad)" stroke-width="0.6" opacity="0.5" />
+  <line x1="205" y1="340" x2="250" y2="340" stroke="url(#goldGrad)" stroke-width="0.6" opacity="0.5" />
+  <circle cx="200" cy="340" r="2.5" fill="none" stroke="url(#goldGrad)" stroke-width="0.6" opacity="0.7" />
+</svg>
