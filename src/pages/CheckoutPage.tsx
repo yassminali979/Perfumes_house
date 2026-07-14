@@ -31,31 +31,6 @@ export function CheckoutPage() {
 
   const update = (k: keyof typeof form, v: string) => setForm((p) => ({ ...p, [k]: v }));
 
-  const buildWhatsAppMessage = (orderId: string) => {
-    const lines = [
-      `*New Order — Perfumes House*`,
-      `Order #: ${orderId}`,
-      ``,
-      `*Customer:*`,
-      `Name: ${form.customer_name}`,
-      `Phone: ${form.customer_phone}`,
-      `City: ${form.customer_city}`,
-      `Address: ${form.customer_address}`,
-      form.notes ? `Notes: ${form.notes}` : ``,
-      ``,
-      `*Items:*`,
-      ...items.map(
-        (i) => `• ${i.name} (${i.size}) ×${i.quantity} — ${formatEGP(i.unit_price * i.quantity)}`,
-      ),
-      ``,
-      `Subtotal: ${formatEGP(subtotal)}`,
-      `Delivery: ${formatEGP(DELIVERY_FEE)}`,
-      `*Total: ${formatEGP(total)}*`,
-      ``,
-      `Payment: Cash on Delivery`,
-    ].filter(Boolean);
-    return encodeURIComponent(lines.join('\n'));
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,11 +76,6 @@ export function CheckoutPage() {
         );
       if (itemsErr) throw itemsErr;
 
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppMessage(order.id)}`;
-
-      setPlaced({ orderId: order.id, waUrl });
-      clear();
-      window.open(waUrl, '_blank');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
     } finally {
@@ -258,11 +228,8 @@ export function CheckoutPage() {
               )}
 
               <button type="submit" disabled={submitting} className="btn-gold w-full mt-6">
-                {submitting ? 'Placing Order…' : 'Place Order & WhatsApp'}
+                {submitting ? 'Placing Order…' : 'Place Order'}
               </button>
-              <p className="mt-3 text-center text-cream-300/40 text-xs">
-                Your order will be saved and a WhatsApp message will open with your details.
-              </p>
             </div>
           </div>
         </form>
