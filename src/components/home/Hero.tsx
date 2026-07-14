@@ -5,16 +5,6 @@ import { Reveal } from '../Reveal';
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          alt="Luxury perfume"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/50 to-ink-950" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/80 via-transparent to-ink-950/40" />
-      </div>
-
       {/* Content */}
       <div className="relative z-10 max-w-3xl mx-auto px-5 text-center pt-20">
         <Reveal>

@@ -31,7 +31,6 @@ export function Footer() {
               <FooterLink onClick={() => navigate('#/category/men')} label="Men's Perfumes" />
               <FooterLink onClick={() => navigate('#/category/women')} label="Women's Perfumes" />
               <FooterLink onClick={() => navigate('#/category/unisex')} label="Unisex Perfumes" />
-              <FooterLink onClick={() => navigate('#/category/luxury-collection')} label="Luxury Collection" />
             </ul>
           </div>
 
