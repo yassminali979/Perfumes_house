@@ -21,7 +21,14 @@ Deno.serve(async (req) => {
       total,
       items,
     } = await req.json();
-
+    console.log("ORDER DATA: ",{
+      customer_email,
+      customer_name,
+      order_id,
+      total,
+      items,
+    });
+   
     const itemsHtml = items.map((item: any) => `
       <tr>
         <td>${item.product_name}</td>
@@ -29,7 +36,7 @@ Deno.serve(async (req) => {
         <td>${item.line_total} EGP</td>
       </tr>
     `).join("");
-
+    console.log("SENDIG EMAIL");
     const { data, error } = await resend.emails.send({
       from: "Perfumes House <onboarding@resend.dev>",
       to: customer_email,
@@ -72,7 +79,7 @@ Deno.serve(async (req) => {
         </div>
       `,
     });
-
+    console.log("RESEND RESPONSE: ",{ data, error });
     if (error) throw error;
 
     return new Response(
@@ -101,5 +108,7 @@ Deno.serve(async (req) => {
       }
     );
   }
+  console.log("FUNCTION STARTED");
+  console.log("API KEY EXISTS: ", !!Deno.env.get("RESEND_API_KEY"));
 
 })
