@@ -4,6 +4,15 @@ import { Resend } from "resend";
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 Deno.serve(async (req) => {
+  if(req.method ==="OPTIONS"){
+    return new Response ("ok",{
+      headers:{
+        "Access-Control-Allow-Origin":"*",
+        "Access-control-Allow-Headers":
+        "authorization, x-client-info,apikey,content-type",
+      },
+    });
+  }
   try {
     const {
       customer_email,

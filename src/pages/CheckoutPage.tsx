@@ -77,7 +77,7 @@ export function CheckoutPage() {
           orderItems.map((oi) => ({ ...oi, order_id: order.id })),
         );
       if (itemsErr) throw itemsErr;
-      await supabase.functions.invoke(
+      const {data:emailData,error: emailError}=await supabase.functions.invoke(
        "send-order-email",
         {
           body:{
@@ -89,6 +89,9 @@ export function CheckoutPage() {
        }
       }
      );
+     console.log("Email Data: ",emailData);
+     console.log("Email Error: ",emailError);
+     if (emailError) throw emailError;
       setPlaced({
        orderId: order.id,
        waUrl: ''
